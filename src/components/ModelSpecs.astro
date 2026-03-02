@@ -1,0 +1,24 @@
+---
+interface Spec {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  specs: Spec[];
+}
+
+const { specs } = Astro.props;
+---
+
+<div id="specs" class="py-10">
+  <h2 class="text-2xl font-bold text-dark mb-6">מפרט טכני</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    {specs.map((spec) => (
+      <div class="bg-white border border-border rounded-xl p-4 text-center hover:border-access-200 transition-colors">
+        <dt class="text-xs text-gray-500 mb-1">{spec.label}</dt>
+        <dd class="text-lg font-bold text-dark">{spec.value}</dd>
+      </div>
+    ))}
+  </div>
+</div>

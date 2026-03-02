@@ -1,0 +1,128 @@
+---
+const phone = '077-230-7577';
+const email = 'support@access-motor.co.il';
+const year = new Date().getFullYear();
+
+const productLinks = [
+  { label: 'טרקטורוני ספורט', href: '/sport/' },
+  { label: 'טרקטורוני עבודה', href: '/utility/' },
+  { label: 'מחירון', href: '/prices/' },
+];
+
+const infoLinks = [
+  { label: 'אודות Access', href: '/about/' },
+  { label: 'שירות ותחזוקה', href: '/service/' },
+  { label: 'מרכזי שירות', href: '/service/garages/' },
+  { label: 'מאמרים ומדריכים', href: '/blog/' },
+  { label: 'צור קשר', href: '/contact/' },
+];
+
+const socialLinks = [
+  { label: 'Facebook', href: 'https://www.facebook.com/accessmotortw/', icon: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@accessmotor', icon: 'M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z' },
+];
+---
+
+<footer class="bg-access-900 text-gray-300">
+  <!-- Main footer -->
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href="/" class="inline-block mb-4">
+          <img src="/images/access-motor-logo.png" alt="Access Motor ישראל" class="h-10 w-auto" width="140" height="40" loading="lazy" />
+        </a>
+        <p class="text-sm leading-relaxed mb-4">
+          Access אקסס - טרקטורונים איכותיים מטייוואן.
+          מנועים חזקים, אמינות מוכחת ומחירים תחרותיים.
+        </p>
+        <!-- Social (manufacturer links) -->
+        <div class="flex gap-3">
+          {socialLinks.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              class="w-9 h-9 bg-gray-700 hover:bg-access-500 rounded-full flex items-center justify-center transition-colors"
+            >
+              <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+                <path d={social.icon} />
+              </svg>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">דגמים</h3>
+        <ul class="space-y-2">
+          {productLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm hover:text-access-400 transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Info -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">מידע</h3>
+        <ul class="space-y-2">
+          {infoLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm hover:text-access-400 transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">יצירת קשר</h3>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href={`tel:${phone}`} class="flex items-center gap-2 hover:text-access-400 transition-colors">
+              <svg class="w-5 h-5 text-access-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              {phone}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${email}`} class="flex items-center gap-2 hover:text-access-400 transition-colors">
+              <svg class="w-5 h-5 text-access-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              {email}
+            </a>
+          </li>
+          <li class="pt-2">
+            <a href="https://accessmotorglobal.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-access-400 transition-colors">
+              <svg class="w-5 h-5 text-access-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
+              </svg>
+              accessmotorglobal.com - אתר היצרן
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 py-4 space-y-2 text-xs text-gray-500">
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/accessibility/" class="hover:text-access-400 transition-colors">הצהרת נגישות</a>
+        <a href="/privacy/" class="hover:text-access-400 transition-colors">מדיניות פרטיות</a>
+        <a href="/terms/" class="hover:text-access-400 transition-colors">תנאי שימוש</a>
+      </div>
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
+        <p>&copy; {year} Access Motor ישראל. כל הזכויות שמורות.</p>
+        <p>Access הוא סימן מסחרי רשום של Access Motor Co., Ltd. (טייוואן)</p>
+      </div>
+    </div>
+  </div>
+</footer>

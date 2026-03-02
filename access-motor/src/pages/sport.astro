@@ -1,0 +1,190 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/Hero.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ProductCard from '@/components/ProductCard.astro';
+import FAQ from '@/components/FAQ.astro';
+import CTASection from '@/components/CTASection.astro';
+import { sportModels, formatPrice } from '@/lib/models-data';
+
+const breadcrumbs = [{ label: 'טרקטורוני ספורט' }];
+
+const faq = [
+  {
+    question: 'מה ההבדל בין דגמי SP300, SP400 ו-SP450?',
+    answer:
+      'ההבדל העיקרי הוא בנפח המנוע והעוצמה: SP300 (300cc) מתאים למתחילים ולשטח קל, SP400 (400cc) הוא הדגם הפופולרי ביותר עם איזון מצוין בין כוח לשליטה, ו-SP 450 Sport (450cc) הוא הספורטיבי ביותר עם מתלים ארוכים יותר ותגובה מהירה יותר.',
+  },
+  {
+    question: 'האם טרקטורוני הספורט של Access מתאימים למתחילים?',
+    answer:
+      'כן! דגם SP300 עם מנוע 300cc מתאים במיוחד למתחילים. המנוע מספק מספיק כוח לרכיבת שטח מהנה, אך לא אגרסיבי מדי. לרוכבים מנוסים יותר, מומלץ לשקול את ה-SP400 או SP 450 Sport.',
+  },
+  {
+    question: 'האם ניתן להשתמש בטרקטורון ספורט גם לעבודה?',
+    answer:
+      'טרקטורוני הספורט מיועדים בעיקר לרכיבת שטח ופנאי. לשימושי עבודה (חקלאות, הובלות) מומלץ לבחור בקטגוריית <a href="/utility/" class="text-access-500 hover:text-access-600 underline">טרקטורוני עבודה</a> שכוללת ארגז מטען ויכולות העמסה.',
+  },
+];
+---
+
+<BaseLayout
+  title="טרקטורוני ספורט Access אקסס | 3 דגמים מ-300cc עד 450cc"
+  description={`טרקטורוני ספורט Access אקסס - ${sportModels.length} דגמי Sport ATV מ-300cc עד 450cc. מתלים ארוכים, תגובה מהירה ורכיבת שטח מרגשת. מחירים מ-₪32,990.`}
+>
+  <link slot="head" rel="preload" as="image" href="/images/hero/hero-sport-atv.webp" type="image/webp" />
+
+  <!-- Hero -->
+  <Hero
+    title="טרקטורוני ספורט Access אקסס"
+    subtitle={`${sportModels.length} דגמי Sport ATV מ-300cc עד 450cc - מתלים ארוכים, תגובה מהירה ורכיבת שטח מרגשת`}
+    image="/images/hero/hero-sport-atv.webp"
+    compact
+    ctaText="לקבלת הצעת מחיר"
+    ctaHref="/contact/"
+  />
+
+  <!-- Breadcrumbs + Products -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <h2 class="text-2xl font-bold text-dark mb-8">דגמי טרקטורוני ספורט</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          sportModels.map((model) => (
+            <ProductCard
+              title={model.name}
+              slug={model.slug}
+              price={model.price}
+              category={model.category}
+              engine={model.engine}
+              seats={model.seats}
+              badge={model.badge}
+              image={model.image}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-dark mb-8 text-center">למה טרקטורון ספורט Access?</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {
+          [
+            {
+              icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+              title: 'מנועים מ-300cc עד 450cc',
+              desc: 'מגוון נפחי מנוע לכל רמת ניסיון - מהמתחיל ועד הרוכב המנוסה',
+            },
+            {
+              icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+              title: 'מתלים ארוכים',
+              desc: 'מערכת מתלים עצמאית עם מהלך ארוך לספיגת מכשולים ונוחות ברכיבה',
+            },
+            {
+              icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+              title: 'תגובה מהירה',
+              desc: 'תגובת גז מהירה, היגוי מדויק ובלימה יעילה לשליטה מלאה בשטח',
+            },
+          ].map((feat) => (
+            <div class="bg-white p-6 rounded-xl border border-border hover:border-access-200 hover:shadow-md transition-all">
+              <div class="w-12 h-12 rounded-xl bg-access-100 flex items-center justify-center mb-4">
+                <svg
+                  class="w-6 h-6 text-access-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d={feat.icon} />
+                </svg>
+              </div>
+              <h3 class="font-bold text-dark text-lg mb-2">{feat.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{feat.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-dark mb-8 text-center">השוואת דגמים</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse bg-white rounded-xl overflow-hidden shadow-sm border border-border">
+          <thead>
+            <tr class="bg-access-50">
+              <th class="text-start p-4 font-semibold text-dark border-b border-access-100">דגם</th>
+              <th class="text-center p-4 font-semibold text-dark border-b border-access-100">מנוע</th>
+              <th class="text-center p-4 font-semibold text-dark border-b border-access-100">רמה</th>
+              <th class="text-center p-4 font-semibold text-dark border-b border-access-100">מחיר</th>
+              <th class="text-center p-4 font-semibold text-dark border-b border-access-100"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              sportModels.map((model, i) => (
+                <tr class="hover:bg-access-50/50 transition-colors">
+                  <td class="p-4 font-medium text-dark border-b border-gray-100">{model.name}</td>
+                  <td class="text-center p-4 border-b border-gray-100">{model.engine}</td>
+                  <td class="text-center p-4 border-b border-gray-100">
+                    {i === 0 ? 'מתחילים' : i === 1 ? 'ביניים' : 'מתקדמים'}
+                  </td>
+                  <td class="text-center p-4 font-semibold text-access-600 border-b border-gray-100">
+                    {formatPrice(model.price)}
+                  </td>
+                  <td class="text-center p-4 border-b border-gray-100">
+                    <a href={`/models/${model.slug}/`} class="text-access-600 hover:text-access-700 text-sm font-medium">
+                      פרטים &larr;
+                    </a>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Description -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-dark mb-6">טרקטורוני ספורט Access בישראל</h2>
+      <div class="prose prose-lg max-w-none text-gray-700 space-y-4">
+        <p>
+          קו טרקטורוני הספורט של Access כולל {sportModels.length} דגמים שתוכננו לרכיבת שטח מרגשת ומהנה. מהדגם הראשוני
+          SP300 המתאים למתחילים, דרך ה-SP400 הפופולרי, ועד ל-SP 450 Sport הספורטיבי ביותר בסדרה.
+        </p>
+        <p>
+          כל דגמי הספורט של Access מצוידים במערכת מתלים עצמאית עם מהלך ארוך, מבטיחה ספיגת מכשולים מצוינת ורכיבה נוחה גם
+          בשטח קשה. המנועים האמינים מספקים תגובה מהירה ושליטה מלאה, בעוד מערכת הבלמים הדיסקית מבטיחה עצירה בטוחה.
+        </p>
+        <p>
+          בין אם אתם מחפשים טרקטורון ראשון או משדרגים לדגם חזק יותר, Access מציעה פתרון לכל רוכב. צרו קשר לייעוץ מקצועי
+          והתאמת הדגם המושלם עבורכם.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <FAQ items={faq} title="שאלות נפוצות על טרקטורוני ספורט Access" />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="מחפשים טרקטורון ספורט לשטח?"
+    subtitle="צרו קשר לייעוץ מקצועי וקבלת הצעת מחיר מותאמת לצרכים שלכם"
+  />
+</BaseLayout>

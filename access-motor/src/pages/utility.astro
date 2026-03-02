@@ -1,0 +1,220 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/Hero.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ProductCard from '@/components/ProductCard.astro';
+import FAQ from '@/components/FAQ.astro';
+import CTASection from '@/components/CTASection.astro';
+import { utilityModels, formatPrice } from '@/lib/models-data';
+
+const breadcrumbs = [{ label: 'טרקטורוני עבודה' }];
+
+const faq = [
+  {
+    question: 'מה ההבדל בין TENA 300, AX650 ו-AMX800?',
+    answer:
+      'ההבדל העיקרי הוא בנפח המנוע והעוצמה: TENA 300 (300cc) הוא הדגם המשתלם ביותר, מתאים לעבודות קלות ובינוניות. AX650 (650cc) מציע יותר כוח לעבודות יומיומיות. AMX800 (800cc) הוא הדגל של הסדרה, עם הכוח הרב ביותר למשימות תובעניות.',
+  },
+  {
+    question: 'האם טרקטורוני העבודה של Access כוללים ארגז מטען?',
+    answer:
+      'דגמי הסדרה הגדולים (AX650 ו-AMX800) כוללים יכולת הובלה ומתאימים להתקנת אביזרים. TENA 300 הוא דגם קומפקטי יותר. לפרטים מדויקים על כל דגם, צרו איתנו קשר.',
+  },
+  {
+    question: 'לאילו שימושים מתאימים טרקטורוני העבודה של Access?',
+    answer:
+      'טרקטורוני העבודה של Access מתאימים לחקלאות ומשקים, ניהול מתחמים, סיורי שטח, עבודות אחזקה, ציד ודייג, ועוד. הם בנויים לעבודה קשה עם מנועים אמינים ומבנה חזק.',
+  },
+];
+---
+
+<BaseLayout
+  title="טרקטורוני עבודה Access אקסס | 3 דגמים מ-300cc עד 800cc"
+  description={`טרקטורוני עבודה Access אקסס - ${utilityModels.length} דגמי Utility ATV מ-300cc עד 800cc. מבנה חזק, מנועים אמינים ועמידות גבוהה. מחירים מ-₪26,990.`}
+>
+  <link slot="head" rel="preload" as="image" href="/images/hero/hero-utility-atv.webp" type="image/webp" />
+
+  <!-- Hero -->
+  <Hero
+    title="טרקטורוני עבודה Access אקסס"
+    subtitle={`${utilityModels.length} דגמי Utility ATV מ-300cc עד 800cc - מבנה חזק, מנועים אמינים ועמידות לכל משימה`}
+    image="/images/hero/hero-utility-atv.webp"
+    compact
+    ctaText="לקבלת הצעת מחיר"
+    ctaHref="/contact/"
+  />
+
+  <!-- Breadcrumbs + Products -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <h2 class="text-2xl font-bold text-dark mb-8">דגמי טרקטורוני עבודה</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          utilityModels.map((model) => (
+            <ProductCard
+              title={model.name}
+              slug={model.slug}
+              price={model.price}
+              category={model.category}
+              engine={model.engine}
+              seats={model.seats}
+              badge={model.badge}
+              image={model.image}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-dark mb-8 text-center">למה טרקטורון עבודה Access?</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {
+          [
+            {
+              icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+              title: 'מחיר משתלם',
+              desc: 'מחירים תחרותיים מ-₪26,990 - יחס עלות-תועלת מצוין לטרקטורון עבודה',
+            },
+            {
+              icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
+              title: 'עמידות מכנית',
+              desc: 'מבנה חזק ומנועים אמינים - בנויים לעבודה קשה ושימוש יומיומי',
+            },
+            {
+              icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+              title: 'מגוון מנועים',
+              desc: 'מ-300cc ועד 800cc - לכל צורך ותקציב, מעבודות קלות ועד משימות כבדות',
+            },
+          ].map((feat) => (
+            <div class="bg-white p-6 rounded-xl border border-border hover:border-access-200 hover:shadow-md transition-all">
+              <div class="w-12 h-12 rounded-xl bg-access-100 flex items-center justify-center mb-4">
+                <svg
+                  class="w-6 h-6 text-access-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d={feat.icon} />
+                </svg>
+              </div>
+              <h3 class="font-bold text-dark text-lg mb-2">{feat.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{feat.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-dark mb-8 text-center">למי מתאים?</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {
+          ['חקלאות ומשקים', 'ניהול מתחמים', 'סיורי שטח', 'עבודות אחזקה', 'ציד ודייג', 'תיירות ונופש'].map((useCase) => (
+            <div class="flex items-center gap-3 p-4 rounded-xl bg-surface border border-border">
+              <svg
+                class="w-5 h-5 text-access-500 flex-shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="font-medium text-dark">{useCase}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-dark mb-8 text-center">השוואת דגמים</h2>
+      <div class="overflow-x-auto">
+        <table
+          class="w-full text-sm border-collapse bg-white rounded-xl overflow-hidden shadow-sm border border-border"
+        >
+          <thead>
+            <tr class="bg-access-50">
+              <th class="text-start p-4 font-semibold text-dark border-b border-access-100">דגם</th>
+              <th class="text-center p-4 font-semibold text-dark border-b border-access-100">מנוע</th>
+              <th class="text-center p-4 font-semibold text-dark border-b border-access-100">עוצמה</th>
+              <th class="text-center p-4 font-semibold text-dark border-b border-access-100">מחיר</th>
+              <th class="text-center p-4 font-semibold text-dark border-b border-access-100"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              utilityModels.map((model, i) => (
+                <tr class="hover:bg-access-50/50 transition-colors">
+                  <td class="p-4 font-medium text-dark border-b border-gray-100">{model.name}</td>
+                  <td class="text-center p-4 border-b border-gray-100">{model.engine}</td>
+                  <td class="text-center p-4 border-b border-gray-100">
+                    {i === 0 ? 'בסיסי' : i === 1 ? 'בינוני' : 'פרמיום'}
+                  </td>
+                  <td class="text-center p-4 font-semibold text-access-600 border-b border-gray-100">
+                    {formatPrice(model.price)}
+                  </td>
+                  <td class="text-center p-4 border-b border-gray-100">
+                    <a
+                      href={`/models/${model.slug}/`}
+                      class="text-access-600 hover:text-access-700 text-sm font-medium"
+                    >
+                      פרטים &larr;
+                    </a>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Description -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-dark mb-6">טרקטורוני עבודה Access בישראל</h2>
+      <div class="prose prose-lg max-w-none text-gray-700 space-y-4">
+        <p>
+          קו טרקטורוני העבודה (Utility) של Access כולל {utilityModels.length} דגמים שתוכננו לשלב ביצועי שטח אמינים עם
+          יכולות עבודה מקצועיות. מהדגם הכלכלי TENA 300, דרך ה-AX650 הרב-תכליתי, ועד ל-AMX800 החזק ביותר בסדרה.
+        </p>
+        <p>
+          כל דגמי העבודה של Access בנויים לעמידות - מנועים אמינים, שלדה חזקה, ומתלים שספגו אינספור קילומטרים של שטח. בין
+          אם אתם מנהלים משק חקלאי, עובדים באתר בנייה, או סתם צריכים רכב שטח אמין - Access מציעה פתרון.
+        </p>
+        <p>
+          היחס עלות-תועלת של Access הוא מהטובים בשוק. מחירים תחרותיים, אחזקה פשוטה, וזמינות חלקי חילוף מלאה דרך רשת
+          השירות של מטרו מוטור. צרו קשר לייעוץ מקצועי.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-3xl mx-auto px-4">
+      <FAQ items={faq} title="שאלות נפוצות על טרקטורוני עבודה Access" />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="מחפשים טרקטורון לעבודה?"
+    subtitle="צרו קשר לייעוץ מקצועי וקבלת הצעת מחיר מותאמת לצרכים שלכם"
+  />
+</BaseLayout>

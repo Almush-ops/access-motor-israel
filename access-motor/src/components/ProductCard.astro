@@ -1,0 +1,87 @@
+---
+import { formatPrice } from '@/lib/models-data';
+
+interface Props {
+  title: string;
+  slug: string;
+  price: number;
+  category: 'atv' | 'sbs' | 'utility';
+  engine: string;
+  seats: number;
+  image?: string;
+  badge?: string;
+}
+
+const { title, slug, price, category, engine, seats, image, badge } = Astro.props;
+const priceDisplay = formatPrice(price);
+
+const categoryColors: Record<string, string> = {
+  'atv': 'bg-red-100 text-red-700',
+  'sbs': 'bg-amber-100 text-amber-700',
+  'utility': 'bg-blue-100 text-blue-700',
+};
+
+const categoryLabels: Record<string, string> = {
+  'atv': 'טרקטורון',
+  'sbs': 'Side-by-Side',
+  'utility': 'טרקטור משא',
+};
+---
+
+<a href={`/models/${slug}/`} class="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 border border-gray-100 hover:border-access-200">
+  <!-- Image -->
+  <div class="aspect-[4/3] bg-gradient-to-br from-gray-50 via-surface to-gray-100 overflow-hidden relative">
+    {image ? (
+      <img
+        src={image}
+        alt={`${title} - Access Motor`}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        width="400"
+        height="300"
+        loading="lazy"
+      />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center">
+        <p class="text-sm text-gray-400">{title}</p>
+      </div>
+    )}
+    {badge && (
+      <span class="absolute top-3 start-3 bg-access-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+        {badge}
+      </span>
+    )}
+    <div class="absolute top-3 end-3 flex gap-1.5">
+      <span class:list={['text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm backdrop-blur-sm', categoryColors[category]]}>
+        {categoryLabels[category]}
+      </span>
+    </div>
+    <div class="absolute inset-0 bg-access-500/0 group-hover:bg-access-500/5 transition-colors duration-300"></div>
+  </div>
+
+  <!-- Info -->
+  <div class="p-5">
+    <h3 class="font-bold text-dark text-lg mb-1 group-hover:text-access-600 transition-colors duration-200">{title}</h3>
+    <div class="flex items-center gap-3 text-sm text-gray-500 mb-3">
+      <span>{engine}</span>
+      <span class="text-gray-300">|</span>
+      <span>{seats === 1 ? 'רוכב אחד' : `${seats} מקומות`}</span>
+    </div>
+    <div class="flex items-center justify-between pt-3 border-t border-gray-100 group-hover:border-access-100 transition-colors">
+      <div>
+        {price > 0 ? (
+          <>
+            <span class="text-xs text-gray-400">החל מ-</span>
+            <span class="text-xl font-bold text-access-600 block" dir="ltr">{priceDisplay}</span>
+          </>
+        ) : (
+          <span class="text-lg font-bold text-access-600">{priceDisplay}</span>
+        )}
+      </div>
+      <span class="w-10 h-10 rounded-full bg-access-50 flex items-center justify-center group-hover:bg-access-500 group-hover:scale-110 transition-all duration-300">
+        <svg class="w-5 h-5 text-access-600 group-hover:text-white transition-colors rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,98 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import SchemaOrg from '@/components/SchemaOrg.astro';
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Access Motor ישראל',
+  telephone: '+972-77-230-7577',
+  email: 'support@access-motor.co.il',
+  url: 'https://access-motor.co.il',
+  openingHours: ['Su-Th 08:00-17:00', 'Fr 08:30-13:00'],
+};
+
+const breadcrumbs = [
+  { label: 'צור קשר' },
+];
+
+const contactInfo = [
+  {
+    icon: 'M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z',
+    title: 'טלפון',
+    value: '077-230-7577',
+    href: 'tel:077-230-7577',
+    lines: null,
+  },
+  {
+    icon: 'M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75',
+    title: 'אימייל',
+    value: 'support@access-motor.co.il',
+    href: 'mailto:support@access-motor.co.il',
+    lines: null,
+  },
+  {
+    icon: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'שעות פעילות',
+    value: null,
+    href: null,
+    lines: ['א׳-ה׳ 08:00-17:00', 'ו׳ 08:30-13:00'],
+  },
+];
+---
+
+<BaseLayout
+  title="צרו קשר - Access Motor ישראל | טלפון, אימייל והשארת פרטים"
+  description="צרו קשר לייעוץ מקצועי והצעת מחיר על טרקטורונים ורכבי שטח Access Motor. טלפון 077-230-7577, אימייל support@access-motor.co.il."
+>
+  <SchemaOrg schema={localBusinessSchema} />
+
+  <div class="max-w-7xl mx-auto px-4 pt-8">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1 class="text-3xl font-bold text-dark mt-4">צרו קשר</h1>
+    <p class="text-gray-600 mt-1">לייעוץ מקצועי והצעת מחיר</p>
+  </div>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Form -->
+        <div>
+          <ContactForm title="השאירו פרטים ונחזור אליכם" />
+        </div>
+
+        <!-- Info Cards -->
+        <div class="space-y-4">
+          <h2 class="text-2xl font-bold text-dark mb-4">פרטי התקשרות</h2>
+          {contactInfo.map((item) => (
+            <div class="flex items-start gap-4 p-5 rounded-xl bg-surface border border-border">
+              <div class="w-12 h-12 rounded-lg bg-access-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-access-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">{item.title}</p>
+                {item.href ? (
+                  <a href={item.href} class="text-dark font-semibold hover:text-access-600 transition-colors">
+                    {item.value}
+                  </a>
+                ) : item.lines ? (
+                  <div class="space-y-0.5">
+                    {item.lines.map((line) => (
+                      <p class="text-dark font-semibold">{line}</p>
+                    ))}
+                  </div>
+                ) : (
+                  <p class="text-dark font-semibold">{item.value}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

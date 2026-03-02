@@ -1,0 +1,58 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { label: 'הצהרת נגישות' },
+];
+---
+
+<BaseLayout
+  title="הצהרת נגישות - Access Motor ישראל"
+  description="הצהרת הנגישות של אתר Access Motor ישראל (access-motor.co.il). מחויבים להנגשת האתר לכלל האוכלוסייה."
+>
+  <section class="bg-gradient-to-bl from-access-900 via-access-800 to-dark text-white py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+      <h1 class="text-4xl font-bold mt-6">הצהרת נגישות</h1>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 prose">
+      <p>עודכן לאחרונה: פברואר 2026</p>
+
+      <h2>מחויבותנו לנגישות</h2>
+      <p>
+        Access Motor ישראל (access-motor.co.il) מחויבת להנגיש את האתר לכלל האוכלוסייה, לרבות אנשים עם מוגבלויות, בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח-1998, ולתקנות הנגישות לשירותי אינטרנט.
+      </p>
+
+      <h2>רמת הנגישות</h2>
+      <p>אתר זה עומד בדרישות תקן הנגישות הישראלי (ת"י 5568) ברמת AA של WCAG 2.1, ככל שהדבר אפשרי מבחינה טכנית.</p>
+
+      <h2>התאמות נגישות באתר</h2>
+      <ul>
+        <li>ניווט באמצעות מקלדת בלבד</li>
+        <li>תמיכה בקוראי מסך</li>
+        <li>טקסט חלופי (alt) לתמונות</li>
+        <li>ניגודיות צבעים מספקת</li>
+        <li>מבנה כותרות היררכי (H1-H6)</li>
+        <li>טפסים עם תוויות ברורות</li>
+        <li>כפתור נגישות קבוע - מאפשר הגדלת טקסט, ניגודיות גבוהה, גווני אפור והדגשת קישורים</li>
+      </ul>
+
+      <h2>דפדפנים נתמכים</h2>
+      <p>האתר נבנה לתמוך בדפדפנים המודרניים: Chrome, Firefox, Safari, Edge בגרסאותיהם העדכניות.</p>
+
+      <h2>יצירת קשר בנושא נגישות</h2>
+      <p>
+        אם נתקלתם בבעיית נגישות באתר, נשמח לשמוע ולטפל בהקדם:
+      </p>
+      <ul>
+        <li>טלפון: <a href="tel:077-230-7577">077-230-7577</a></li>
+        <li>אימייל: <a href="mailto:support@access-motor.co.il">support@access-motor.co.il</a></li>
+      </ul>
+      <p>אנו עושים מאמצים מתמשכים לשפר את נגישות האתר ומתחייבים לטפל בכל פנייה בנושא.</p>
+    </div>
+  </section>
+</BaseLayout>

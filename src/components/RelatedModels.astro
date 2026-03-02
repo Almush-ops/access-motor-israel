@@ -1,0 +1,41 @@
+---
+import ProductCard from './ProductCard.astro';
+import { allModels } from '@/lib/models-data';
+
+interface Props {
+  currentSlug: string;
+  categorySlug: string;
+  title?: string;
+}
+
+const { currentSlug, categorySlug, title = 'דגמים נוספים שיכולים להתאים' } = Astro.props;
+
+const sameCategory = allModels.filter(
+  (m) => m.categorySlug === categorySlug && m.slug !== currentSlug
+);
+const otherCategory = allModels.filter(
+  (m) => m.categorySlug !== categorySlug && m.slug !== currentSlug
+);
+
+const related = [...sameCategory, ...otherCategory].slice(0, 3);
+---
+
+{related.length > 0 && (
+  <section class="py-12">
+    <h2 class="text-2xl font-bold text-dark mb-6">{title}</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {related.map((model) => (
+        <ProductCard
+          title={model.name}
+          slug={model.slug}
+          price={model.price}
+          category={model.category}
+          engine={model.engine}
+          seats={model.seats}
+          image={model.image}
+          badge={model.badge}
+        />
+      ))}
+    </div>
+  </section>
+)}

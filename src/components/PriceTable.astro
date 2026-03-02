@@ -1,0 +1,63 @@
+---
+import { formatPrice, type ModelData } from '@/lib/models-data';
+
+interface Props {
+  rows: ModelData[];
+  title?: string;
+}
+
+const { rows, title } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  'atv': 'טרקטורון',
+  'sbs': 'Side-by-Side',
+  'utility': 'טרקטור משא',
+};
+
+const categoryColors: Record<string, string> = {
+  'atv': 'bg-red-100 text-red-700',
+  'sbs': 'bg-amber-100 text-amber-700',
+  'utility': 'bg-blue-100 text-blue-700',
+};
+---
+
+{title && <h2 class="text-2xl font-bold text-dark mb-6">{title}</h2>}
+
+<div class="overflow-x-auto">
+  <table class="w-full border-collapse">
+    <thead>
+      <tr class="bg-dark text-white">
+        <th class="p-3 text-start font-semibold">דגם</th>
+        <th class="p-3 text-center font-semibold">קטגוריה</th>
+        <th class="p-3 text-center font-semibold">מנוע</th>
+        <th class="p-3 text-center font-semibold">מקומות</th>
+        <th class="p-3 text-center font-semibold">מחיר כולל מע"מ</th>
+        <th class="p-3 text-center font-semibold hidden sm:table-cell"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row, i) => (
+        <tr class:list={['border-b border-border hover:bg-access-50/50 transition-colors', i % 2 === 0 ? 'bg-white' : 'bg-surface/50']}>
+          <td class="p-3">
+            <a href={`/models/${row.slug}/`} class="font-medium text-dark hover:text-access-600 transition-colors">
+              {row.name}
+            </a>
+          </td>
+          <td class="p-3 text-center">
+            <span class:list={['text-xs font-medium px-2 py-0.5 rounded-full', categoryColors[row.category]]}>
+              {categoryLabels[row.category]}
+            </span>
+          </td>
+          <td class="p-3 text-center text-sm text-gray-600">{row.engine}</td>
+          <td class="p-3 text-center text-gray-700">{row.seats}</td>
+          <td class="p-3 text-center font-bold text-access-600">{formatPrice(row.price)}</td>
+          <td class="p-3 text-center hidden sm:table-cell">
+            <a href={`/models/${row.slug}/`} class="text-sm text-access-600 hover:text-access-700 font-medium">
+              פרטים &larr;
+            </a>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

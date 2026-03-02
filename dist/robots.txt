@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://segway-powersports.co.il/sitemap-index.xml

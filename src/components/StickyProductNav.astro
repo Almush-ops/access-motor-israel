@@ -1,0 +1,107 @@
+---
+interface NavItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  items?: NavItem[];
+  hasFeatures?: boolean;
+  hasSpecs?: boolean;
+  hasFaq?: boolean;
+}
+
+const {
+  hasFeatures = true,
+  hasSpecs = true,
+  hasFaq = true,
+} = Astro.props;
+
+const navItems: NavItem[] = [
+  { id: 'overview', label: 'סקירה' },
+  ...(hasFeatures ? [{ id: 'features', label: 'יתרונות' }] : []),
+  ...(hasSpecs ? [{ id: 'specs', label: 'מפרט' }] : []),
+  ...(hasFaq ? [{ id: 'faq', label: 'שאלות' }] : []),
+  { id: 'contact', label: 'יצירת קשר' },
+];
+---
+
+<nav id="product-nav" class="sticky top-16 z-30 bg-white/95 backdrop-blur-sm border-b border-border transition-all duration-300 opacity-0 -translate-y-2" aria-label="ניווט בעמוד">
+  <div class="max-w-4xl mx-auto px-4">
+    <ul class="flex gap-1 overflow-x-auto scrollbar-hide py-2">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={`#${item.id}`}
+            class="product-nav-link whitespace-nowrap px-4 py-2 rounded-full text-sm text-gray-600 hover:text-access-600 hover:bg-access-50 transition-all"
+            data-section={item.id}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function initProductNav() {
+    const nav = document.getElementById('product-nav');
+    const links = document.querySelectorAll<HTMLAnchorElement>('.product-nav-link');
+    if (!nav || links.length === 0) return;
+
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          nav.classList.add('opacity-0', '-translate-y-2');
+          nav.classList.remove('opacity-100', 'translate-y-0');
+        } else {
+          nav.classList.remove('opacity-0', '-translate-y-2');
+          nav.classList.add('opacity-100', 'translate-y-0');
+        }
+      },
+      { threshold: 0 }
+    );
+
+    const heroSection = document.getElementById('product-hero');
+    if (heroSection) heroObserver.observe(heroSection);
+
+    const sectionIds = Array.from(links).map((l) => l.dataset.section!);
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            links.forEach((l) => l.classList.remove('active'));
+            const activeLink = document.querySelector<HTMLAnchorElement>(
+              `.product-nav-link[data-section="${entry.target.id}"]`
+            );
+            activeLink?.classList.add('active');
+          }
+        });
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 }
+    );
+
+    sections.forEach((s) => sectionObserver.observe(s));
+
+    links.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.dataset.section;
+        const target = document.getElementById(targetId!);
+        if (target) {
+          const offset = 120;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  initProductNav();
+  document.addEventListener('astro:after-swap', initProductNav);
+</script>

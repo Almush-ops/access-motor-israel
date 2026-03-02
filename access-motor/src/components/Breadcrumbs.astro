@@ -1,0 +1,48 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+  light?: boolean;
+}
+
+const { items, light = false } = Astro.props;
+const siteUrl = 'https://access-motor.co.il';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'דף הבית', item: siteUrl },
+    ...items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: item.label,
+      ...(item.href ? { item: `${siteUrl}${item.href}` } : {}),
+    })),
+  ],
+};
+---
+
+<nav aria-label="Breadcrumb" class:list={['text-sm mb-6', light ? 'text-gray-300' : 'text-gray-500']}>
+  <ol class="flex flex-wrap items-center gap-1">
+    <li>
+      <a href="/" class:list={['transition-colors', light ? 'hover:text-access-400' : 'hover:text-access-600']}>דף הבית</a>
+    </li>
+    {items.map((item, i) => (
+      <li class="flex items-center gap-1">
+        <span class="mx-1">/</span>
+        {item.href && i < items.length - 1 ? (
+          <a href={item.href} class:list={['transition-colors', light ? 'hover:text-access-400' : 'hover:text-access-600']}>{item.label}</a>
+        ) : (
+          <span class:list={['font-medium', light ? 'text-white' : 'text-dark']}>{item.label}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
