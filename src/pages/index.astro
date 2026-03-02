@@ -89,7 +89,7 @@ const homeFaq = [
   title="Access אקסס ישראל | טרקטורונים - 6 דגמים מ-₪26,990"
   description="Access אקסס ישראל - טרקטורונים לספורט ולעבודה. 6 דגמים מ-300cc עד 800cc, מחירים מ-₪26,990. יבואן רשמי מטרו מוטור. לפרטים ולייעוץ מקצועי."
 >
-  <link slot="head" rel="preload" as="image" href="/images/hero/hero-access-main.webp" type="image/webp" />
+  <link slot="head" rel="preload" as="image" href="/images/hero/hero-sport-atv.webp" type="image/webp" />
   <SchemaOrg schema={[orgSchema, websiteSchema]} />
 
   <!-- Hero -->
@@ -100,8 +100,13 @@ const homeFaq = [
     ctaHref="/contact/"
     secondaryCtaText="צפו בדגמים"
     secondaryCtaHref="/prices/"
-    image="/images/hero/hero-access-main.webp"
+    image="/images/hero/hero-sport-atv.webp"
     overlay="dark"
+    stats={[
+      { value: "6", label: "דגמים" },
+      { value: "25+", label: "שנות ניסיון" },
+      { value: "800cc", label: "עד" },
+    ]}
   />
 
   <!-- Categories -->
@@ -209,7 +214,7 @@ const homeFaq = [
         <!-- Image side -->
         <div class="relative rounded-2xl overflow-hidden shadow-xl h-[400px]">
           <img
-            src="/images/hero/hero-access-action.webp"
+            src="/images/hero/hero-utility-atv.webp"
             alt="טרקטורון Access אקסס בפעולה"
             class="w-full h-full object-cover"
             loading="lazy"
