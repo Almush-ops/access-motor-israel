@@ -7,7 +7,7 @@ import FAQ from '@/components/FAQ.astro';
 import CTASection from '@/components/CTASection.astro';
 import { utilityModels, formatPrice } from '@/lib/models-data';
 
-const breadcrumbs = [{ label: 'טרקטורוני עבודה' }];
+const breadcrumbs = [{ label: 'טרקטורוני שטח' }];
 
 const faq = [
   {
@@ -16,27 +16,27 @@ const faq = [
       'ההבדל העיקרי הוא בנפח המנוע והעוצמה: TENA 300 (300cc) הוא הדגם המשתלם ביותר, מתאים לעבודות קלות ובינוניות. AX650 (650cc) מציע יותר כוח לעבודות יומיומיות. AMX800 (800cc) הוא הדגל של הסדרה, עם הכוח הרב ביותר למשימות תובעניות.',
   },
   {
-    question: 'האם טרקטורוני העבודה של Access כוללים ארגז מטען?',
+    question: 'האם טרקטורוני השטח של Access כוללים ארגז מטען?',
     answer:
       'דגמי הסדרה הגדולים (AX650 ו-AMX800) כוללים יכולת הובלה ומתאימים להתקנת אביזרים. TENA 300 הוא דגם קומפקטי יותר. לפרטים מדויקים על כל דגם, צרו איתנו קשר.',
   },
   {
-    question: 'לאילו שימושים מתאימים טרקטורוני העבודה של Access?',
+    question: 'לאילו שימושים מתאימים טרקטורוני השטח של Access?',
     answer:
-      'טרקטורוני העבודה של Access מתאימים לחקלאות ומשקים, ניהול מתחמים, סיורי שטח, עבודות אחזקה, ציד ודייג, ועוד. הם בנויים לעבודה קשה עם מנועים אמינים ומבנה חזק.',
+      'טרקטורוני השטח של Access מתאימים לחקלאות ומשקים, ניהול מתחמים, סיורי שטח, עבודות אחזקה, ציד ודייג, ועוד. הם בנויים לשטח קשה עם מנועים אמינים ומבנה חזק.',
   },
 ];
 ---
 
 <BaseLayout
-  title="טרקטורוני עבודה Access אקסס | 3 דגמים מ-300cc עד 800cc"
-  description={`טרקטורוני עבודה Access אקסס - ${utilityModels.length} דגמי Utility ATV מ-300cc עד 800cc. מבנה חזק, מנועים אמינים ועמידות גבוהה. מחירים מ-₪26,990.`}
+  title="טרקטורוני שטח Access אקסס | 3 דגמים מ-300cc עד 800cc"
+  description={`טרקטורוני שטח Access אקסס - ${utilityModels.length} דגמי Utility ATV מ-300cc עד 800cc. מבנה חזק, מנועים אמינים ועמידות גבוהה. מחירים מ-₪26,990.`}
 >
   <link slot="head" rel="preload" as="image" href="/images/hero/hero-utility-atv.webp" type="image/webp" />
 
   <!-- Hero -->
   <Hero
-    title="טרקטורוני עבודה Access אקסס"
+    title="טרקטורוני שטח Access אקסס"
     subtitle={`${utilityModels.length} דגמי Utility ATV מ-300cc עד 800cc - מבנה חזק, מנועים אמינים ועמידות לכל משימה`}
     image="/images/hero/hero-utility-atv.webp"
     compact
@@ -49,7 +49,7 @@ const faq = [
     <div class="max-w-7xl mx-auto px-4">
       <Breadcrumbs items={breadcrumbs} />
 
-      <h2 class="text-2xl font-bold text-dark mb-8">דגמי טרקטורוני עבודה</h2>
+      <h2 class="text-2xl font-bold text-dark mb-8">דגמי טרקטורוני שטח</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           utilityModels.map((model) => (
@@ -72,19 +72,19 @@ const faq = [
   <!-- Key Features -->
   <section class="py-16 bg-surface">
     <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-dark mb-8 text-center">למה טרקטורון עבודה Access?</h2>
+      <h2 class="text-2xl font-bold text-dark mb-8 text-center">למה טרקטורון שטח Access?</h2>
       <div class="grid md:grid-cols-3 gap-6">
         {
           [
             {
               icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
               title: 'מחיר משתלם',
-              desc: 'מחירים תחרותיים מ-₪26,990 - יחס עלות-תועלת מצוין לטרקטורון עבודה',
+              desc: 'מחירים תחרותיים מ-₪26,990 - יחס עלות-תועלת מצוין לטרקטורון שטח',
             },
             {
               icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
               title: 'עמידות מכנית',
-              desc: 'מבנה חזק ומנועים אמינים - בנויים לעבודה קשה ושימוש יומיומי',
+              desc: 'מבנה חזק ומנועים אמינים - בנויים לשטח קשה ושימוש יומיומי',
             },
             {
               icon: 'M13 10V3L4 14h7v7l9-11h-7z',
@@ -187,14 +187,14 @@ const faq = [
   <!-- Category Description -->
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-dark mb-6">טרקטורוני עבודה Access בישראל</h2>
+      <h2 class="text-2xl font-bold text-dark mb-6">טרקטורוני שטח Access בישראל</h2>
       <div class="prose prose-lg max-w-none text-gray-700 space-y-4">
         <p>
-          קו טרקטורוני העבודה (Utility) של Access כולל {utilityModels.length} דגמים שתוכננו לשלב ביצועי שטח אמינים עם
-          יכולות עבודה מקצועיות. מהדגם הכלכלי TENA 300, דרך ה-AX650 הרב-תכליתי, ועד ל-AMX800 החזק ביותר בסדרה.
+          קו טרקטורוני השטח (Utility) של Access כולל {utilityModels.length} דגמים שתוכננו לשלב ביצועי שטח אמינים עם
+          יכולות שטח מקצועיות. מהדגם הכלכלי TENA 300, דרך ה-AX650 הרב-תכליתי, ועד ל-AMX800 החזק ביותר בסדרה.
         </p>
         <p>
-          כל דגמי העבודה של Access בנויים לעמידות - מנועים אמינים, שלדה חזקה, ומתלים שספגו אינספור קילומטרים של שטח. בין
+          כל דגמי השטח של Access בנויים לעמידות - מנועים אמינים, שלדה חזקה, ומתלים שספגו אינספור קילומטרים של שטח. בין
           אם אתם מנהלים משק חקלאי, עובדים באתר בנייה, או סתם צריכים רכב שטח אמין - Access מציעה פתרון.
         </p>
         <p>
@@ -208,13 +208,13 @@ const faq = [
   <!-- FAQ -->
   <section class="py-16 bg-surface">
     <div class="max-w-3xl mx-auto px-4">
-      <FAQ items={faq} title="שאלות נפוצות על טרקטורוני עבודה Access" />
+      <FAQ items={faq} title="שאלות נפוצות על טרקטורוני שטח Access" />
     </div>
   </section>
 
   <!-- CTA -->
   <CTASection
-    title="מחפשים טרקטורון לעבודה?"
+    title="מחפשים טרקטורון לשטח?"
     subtitle="צרו קשר לייעוץ מקצועי וקבלת הצעת מחיר מותאמת לצרכים שלכם"
   />
 </BaseLayout>

@@ -26,6 +26,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Smooth transitions for all interactive elements */
+  a, button {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  /* Smoother image loading */
+  img {
+    @apply transition-opacity duration-300;
+  }
 }
 
 @layer components {

@@ -43,8 +43,8 @@ const categories = [
     image: '/images/hero/hero-sport-atv.webp',
   },
   {
-    title: 'טרקטורוני עבודה',
-    desc: `${utilityModels.length} דגמי טרקטורון לעבודה מ-300cc עד 800cc`,
+    title: 'טרקטורוני שטח',
+    desc: `${utilityModels.length} דגמי טרקטורון שטח מ-300cc עד 800cc`,
     href: '/utility/',
     count: utilityModels.length,
     image: '/images/hero/hero-utility-atv.webp',
@@ -61,11 +61,11 @@ const homeFaq = [
   {
     question: 'מה זה Access Motor?',
     answer:
-      'Access Motor הוא יצרן טרקטורונים מטייוואן מאז 1999, המתמחה ב-ATVs לספורט ולעבודה. המותג ידוע באיכות בנייה גבוהה, מנועים אמינים ויחס עלות-תועלת מצוין. היבואן הרשמי בישראל הוא חברת מטרו מוטור שיווק בע"מ.',
+      'Access Motor הוא יצרן טרקטורונים מטייוואן מאז 1999, המתמחה ב-ATVs לספורט ולשטח. המותג ידוע באיכות בנייה גבוהה, מנועים אמינים ויחס עלות-תועלת מצוין. היבואן הרשמי בישראל הוא חברת מטרו מוטור שיווק בע"מ.',
   },
   {
     question: 'אילו קטגוריות טרקטורונים מציעה Access?',
-    answer: `Access Motor מציעה 2 קטגוריות: טרקטורוני ספורט - ${sportModels.length} דגמים לרכיבת שטח ופנאי, וטרקטורוני עבודה - ${utilityModels.length} דגמים לחקלאות ותעשייה. <a href="/prices/" class="text-access-500 hover:text-access-600 underline">למחירון המלא</a>`,
+    answer: `Access Motor מציעה 2 קטגוריות: טרקטורוני ספורט - ${sportModels.length} דגמים לרכיבת שטח ופנאי, וטרקטורוני שטח - ${utilityModels.length} דגמים לחקלאות ותעשייה. <a href="/prices/" class="text-access-500 hover:text-access-600 underline">למחירון המלא</a>`,
   },
   {
     question: 'מהו טווח המחירים של טרקטורוני Access בישראל?',
@@ -73,9 +73,9 @@ const homeFaq = [
       'מחירי טרקטורוני Access בישראל נעים בין כ-27,000 ₪ לדגם TENA 300 ועד כ-45,000 ₪ לדגם SP 450 Sport. כל המחירים כוללים מע"מ. <a href="/prices/" class="text-access-500 hover:text-access-600 underline">למחירון מפורט</a>',
   },
   {
-    question: 'מה ההבדל בין טרקטורון ספורט לטרקטורון עבודה?',
+    question: 'מה ההבדל בין טרקטורון ספורט לטרקטורון שטח?',
     answer:
-      'טרקטורון ספורט (Sport ATV) מיועד לרכיבת שטח ופנאי, עם מתלים ארוכים ותגובה מהירה. טרקטורון עבודה (Utility ATV) מיועד לעבודה בחקלאות ותעשייה, עם יכולת העמסה גבוהה, וו גרירה ומבנה חזק יותר.',
+      'טרקטורון ספורט (Sport ATV) מיועד לרכיבת שטח ופנאי, עם מתלים ארוכים ותגובה מהירה. טרקטורון שטח (Utility ATV) מיועד לשטח בחקלאות ותעשייה, עם יכולת העמסה גבוהה, וו גרירה ומבנה חזק יותר.',
   },
   {
     question: 'איך ניתן לקבל מידע נוסף או הצעת מחיר?',
@@ -87,7 +87,7 @@ const homeFaq = [
 
 <BaseLayout
   title="Access אקסס ישראל | טרקטורונים - 6 דגמים מ-₪26,990"
-  description="Access אקסס ישראל - טרקטורונים לספורט ולעבודה. 6 דגמים מ-300cc עד 800cc, מחירים מ-₪26,990. יבואן רשמי מטרו מוטור. לפרטים ולייעוץ מקצועי."
+  description="Access אקסס ישראל - טרקטורונים לספורט ולשטח. 6 דגמים מ-300cc עד 800cc, מחירים מ-₪26,990. יבואן רשמי מטרו מוטור. לפרטים ולייעוץ מקצועי."
 >
   <link slot="head" rel="preload" as="image" href="/images/hero/hero-access-main.webp" type="image/webp" />
   <SchemaOrg schema={[orgSchema, websiteSchema]} />
@@ -95,7 +95,7 @@ const homeFaq = [
   <!-- Hero -->
   <Hero
     title="טרקטורונים Access אקסס"
-    subtitle="6 דגמי טרקטורונים לספורט ולעבודה מ-300cc עד 800cc. איכות טייוואנית מ-1999, יבואן רשמי מטרו מוטור."
+    subtitle="6 דגמי טרקטורונים לספורט ולשטח מ-300cc עד 800cc. איכות טייוואנית מ-1999, יבואן רשמי מטרו מוטור."
     ctaText="לקבלת הצעת מחיר"
     ctaHref="/contact/"
     secondaryCtaText="צפו בדגמים"
@@ -110,7 +110,7 @@ const homeFaq = [
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-dark mb-3">קטגוריות טרקטורונים</h2>
         <p class="text-gray-600 max-w-2xl mx-auto">
-          2 קטגוריות של Access Motor לכל שימוש - מטרקטורוני ספורט ועד טרקטורוני עבודה
+          2 קטגוריות של Access Motor לכל שימוש - מטרקטורוני ספורט ועד טרקטורוני שטח
         </p>
       </div>
 
@@ -238,7 +238,7 @@ const homeFaq = [
         <!-- Content side -->
         <div>
           <p class="text-gray-600 mb-8 leading-relaxed text-lg">
-            Access Motor מייצרת טרקטורונים מאז 1999, ומציעה מגוון דגמים לספורט ולעבודה. עם מנועים אמינים מ-300cc עד
+            Access Motor מייצרת טרקטורונים מאז 1999, ומציעה מגוון דגמים לספורט ולשטח. עם מנועים אמינים מ-300cc עד
             800cc, מערכות הילוכים מתקדמות, ומבנה חזק המותאם לתנאי השטח הישראלי.
           </p>
           <div class="grid sm:grid-cols-2 gap-5">

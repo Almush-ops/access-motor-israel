@@ -52,13 +52,13 @@ export const allModels: ModelData[] = [
     image: '/images/models/sp450-sport.webp',
   },
 
-  // Utility ATVs - טרקטורוני עבודה
+  // Utility ATVs - טרקטורוני שטח
   {
     name: 'Access TENA 300',
     slug: 'tena-300',
     price: 26990,
     category: 'utility',
-    categoryName: 'טרקטורוני עבודה',
+    categoryName: 'טרקטורוני שטח',
     categorySlug: 'utility',
     engine: '300cc',
     seats: 1,
@@ -70,7 +70,7 @@ export const allModels: ModelData[] = [
     slug: 'ax650',
     price: 41990,
     category: 'utility',
-    categoryName: 'טרקטורוני עבודה',
+    categoryName: 'טרקטורוני שטח',
     categorySlug: 'utility',
     engine: '650cc',
     seats: 1,
@@ -81,7 +81,7 @@ export const allModels: ModelData[] = [
     slug: 'amx800',
     price: 42990,
     category: 'utility',
-    categoryName: 'טרקטורוני עבודה',
+    categoryName: 'טרקטורוני שטח',
     categorySlug: 'utility',
     engine: '800cc',
     seats: 1,
