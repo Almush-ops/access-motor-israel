@@ -9,7 +9,7 @@ interface Props {
   title?: string;
 }
 
-const { items, title = 'שאלות נפוצות' } = Astro.props;
+const { items, title } = Astro.props;
 
 const stripHtml = (html: string) => html.replace(/<[^>]*>/g, '');
 
@@ -28,7 +28,7 @@ const faqSchema = {
 ---
 
 <section id="faq" class="py-12">
-  <h2 class="text-2xl font-bold text-dark mb-8">{title}</h2>
+  {title && <h2 class="text-2xl font-bold text-dark mb-8">{title}</h2>}
   <div class="space-y-3">
     {items.map((item) => (
       <details class="group border border-border rounded-xl overflow-hidden bg-white hover:border-access-200 transition-colors">

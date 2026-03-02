@@ -7,6 +7,7 @@ import FAQ from '@/components/FAQ.astro';
 import ContactForm from '@/components/ContactForm.astro';
 import CTASection from '@/components/CTASection.astro';
 import SchemaOrg from '@/components/SchemaOrg.astro';
+import SectionNumber from '@/components/SectionNumber.astro';
 import { allModels, sportModels, utilityModels } from '@/lib/models-data';
 
 const siteUrl = 'https://access-motor.co.il';
@@ -73,9 +74,9 @@ const homeFaq = [
       'מחירי טרקטורוני Access בישראל נעים בין כ-27,000 ₪ לדגם TENA 300 ועד כ-45,000 ₪ לדגם SP 450 Sport. כל המחירים כוללים מע"מ. <a href="/prices/" class="text-access-500 hover:text-access-600 underline">למחירון מפורט</a>',
   },
   {
-    question: 'מה ההבדל בין טרקטורון ספורט לטרקטורון עבודה?',
+    question: 'מה ההבדל בין טרקטורון ספורט לטרקטורון שטח?',
     answer:
-      'טרקטורון ספורט (Sport ATV) מיועד לרכיבת שטח ופנאי, עם מתלים ארוכים ותגובה מהירה. טרקטורון עבודה (Utility ATV) מיועד לעבודה בחקלאות ותעשייה, עם יכולת העמסה גבוהה, וו גרירה ומבנה חזק יותר.',
+      'טרקטורון ספורט (Sport ATV) מיועד לרכיבת שטח ופנאי, עם מתלים ארוכים ותגובה מהירה. טרקטורון שטח (Utility ATV) מיועד לעבודה בחקלאות ותעשייה, עם יכולת העמסה גבוהה, וו גרירה ומבנה חזק יותר.',
   },
   {
     question: 'איך ניתן לקבל מידע נוסף או הצעת מחיר?',
@@ -109,43 +110,47 @@ const homeFaq = [
     ]}
   />
 
-  <!-- Categories -->
-  <section class="py-16 bg-white">
+  <!-- Section 01: Categories -->
+  <section class="py-20 bg-white relative overflow-hidden">
+    <!-- Decorative diagonal -->
+    <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-access-900/5 to-transparent"></div>
+
     <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-dark mb-3">קטגוריות טרקטורונים</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          2 קטגוריות של Access Motor לכל שימוש - טרקטורוני ספורט וטרקטורוני שטח
-        </p>
-      </div>
+      <SectionNumber
+        number="01"
+        title="קטגוריות טרקטורונים"
+        subtitle="2 קטגוריות של Access Motor לכל שימוש - טרקטורוני ספורט וטרקטורוני שטח"
+      />
 
       <div class="grid md:grid-cols-2 gap-8">
         {
           categories.map((cat) => (
             <a
               href={cat.href}
-              class="group relative rounded-2xl overflow-hidden h-80 block shadow-lg hover:shadow-2xl transition-shadow duration-500 bg-gradient-to-br from-access-900 to-dark"
+              class="group relative rounded-2xl overflow-hidden h-96 block shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-access-900 to-dark"
             >
               <img
                 src={cat.image}
                 alt={cat.title}
-                class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/50 to-dark/20 group-hover:from-dark/85 transition-colors duration-500" />
-              <div class="absolute bottom-0 inset-x-0 p-7">
-                <span class="inline-flex items-center gap-2 text-access-400 text-sm font-semibold mb-2">
-                  <span class="w-8 h-[2px] bg-access-400 block" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent group-hover:from-access-900 transition-colors duration-500" />
+
+              <!-- Content -->
+              <div class="absolute bottom-0 inset-x-0 p-8">
+                <span class="inline-flex items-center gap-3 text-access-400 text-sm font-bold uppercase tracking-wider mb-3">
+                  <span class="w-10 h-[2px] bg-access-400 block group-hover:w-16 transition-all duration-300" />
                   {cat.count} דגמים
                 </span>
-                <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-access-300 transition-colors">
+                <h3 class="text-3xl font-bold text-white mb-3 group-hover:text-access-300 transition-colors">
                   {cat.title}
                 </h3>
-                <p class="text-gray-300 text-sm leading-relaxed mb-3">{cat.desc}</p>
-                <span class="inline-flex items-center gap-2 text-access-400 font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                <p class="text-gray-300 leading-relaxed mb-4">{cat.desc}</p>
+                <span class="inline-flex items-center gap-2 text-access-400 font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
                   לכל הדגמים
                   <svg
-                    class="w-4 h-4 rtl:rotate-180"
+                    class="w-5 h-5 rtl:rotate-180 group-hover:-translate-x-1 transition-transform"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -155,6 +160,9 @@ const homeFaq = [
                   </svg>
                 </span>
               </div>
+
+              <!-- Hover accent -->
+              <div class="absolute top-0 right-0 w-2 h-full bg-access-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
           ))
         }
@@ -162,18 +170,132 @@ const homeFaq = [
     </div>
   </section>
 
-  <!-- Featured Models -->
-  <section class="py-16 bg-surface">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-dark mb-3">דגמים מובילים</h2>
-        <p class="text-gray-600">הדגמים הפופולריים ביותר של Access Motor בישראל</p>
+  <!-- Section 02: About Access (Dark Theme) -->
+  <section class="py-24 bg-access-900 relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-access-950 to-transparent opacity-50"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 bg-access-500/10 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Content side -->
+        <div class="order-2 lg:order-1">
+          <SectionNumber
+            number="02"
+            title="למה לבחור ב-Access?"
+            subtitle="מעל 25 שנות ניסיון בייצור טרקטורונים, שילוב של איכות, אמינות ומחיר משתלם"
+            dark={true}
+          />
+
+          <p class="text-gray-300 mb-10 leading-relaxed text-lg">
+            Access Motor מייצרת טרקטורונים מאז 1999, ומציעה מגוון דגמים לספורט ולעבודה.
+            עם מנועים אמינים מ-300cc עד 800cc, מערכות הילוכים מתקדמות,
+            ומבנה חזק המותאם לתנאי השטח הישראלי.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            {
+              [
+                {
+                  icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+                  title: 'מחיר משתלם',
+                  desc: 'יחס עלות-תועלת מצוין',
+                },
+                {
+                  icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+                  title: 'אמינות מוכחת',
+                  desc: '25+ שנות ייצור',
+                },
+                {
+                  icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+                  title: 'מגוון מנועים',
+                  desc: 'מ-300cc עד 800cc',
+                },
+                {
+                  icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
+                  title: 'שירות ארצי',
+                  desc: 'רשת מטרו מוטור',
+                },
+              ].map((item) => (
+                <div class="group p-5 rounded-xl bg-white/5 border border-white/10 hover:border-access-500/50 hover:bg-white/10 transition-all duration-300">
+                  <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-access-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-access-500/30 transition-colors">
+                      <svg
+                        class="w-6 h-6 text-access-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-white mb-1">{item.title}</h3>
+                      <p class="text-gray-400 text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Image side -->
+        <div class="order-1 lg:order-2 relative">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="/images/hero/hero-utility-atv.webp"
+              alt="טרקטורון Access אקסס בפעולה"
+              class="w-full h-[500px] object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-access-900/80 via-transparent to-transparent"></div>
+
+            <!-- Stats overlay -->
+            <div class="absolute bottom-0 inset-x-0 p-8">
+              <div class="flex gap-8 text-white">
+                <div class="text-center">
+                  <p class="text-4xl font-black text-access-400">6</p>
+                  <p class="text-sm text-gray-300">דגמים</p>
+                </div>
+                <div class="w-px bg-white/20"></div>
+                <div class="text-center">
+                  <p class="text-4xl font-black text-access-400">2</p>
+                  <p class="text-sm text-gray-300">קטגוריות</p>
+                </div>
+                <div class="w-px bg-white/20"></div>
+                <div class="text-center">
+                  <p class="text-4xl font-black text-access-400">800cc</p>
+                  <p class="text-sm text-gray-300">עד</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative corner -->
+          <div class="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-access-500 rounded-2xl -z-10"></div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Section 03: Featured Models -->
+  <section class="py-20 bg-surface relative">
+    <div class="max-w-7xl mx-auto px-4">
+      <SectionNumber
+        number="03"
+        title="דגמים מובילים"
+        subtitle="הדגמים הפופולריים ביותר של Access Motor בישראל"
+      />
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {
           featuredModels.map((model, i) => (
-            <div class="motion-safe:opacity-0 motion-safe:animate-fade-in-up" style={`animation-delay: ${i * 100}ms`}>
+            <div
+              class="motion-safe:opacity-0 motion-safe:animate-fade-in-up"
+              style={`animation-delay: ${i * 100}ms`}
+            >
               <ProductCard
                 title={model.name}
                 slug={model.slug}
@@ -189,143 +311,63 @@ const homeFaq = [
         }
       </div>
 
-      <div class="text-center mt-10">
+      <div class="text-center mt-12">
         <a
           href="/prices/"
-          class="inline-flex items-center px-6 py-3 border-2 border-access-500 text-access-600 font-semibold rounded-md hover:bg-access-50 transition-colors"
+          class="group inline-flex items-center gap-3 px-8 py-4 bg-access-900 text-white font-semibold rounded-sharp hover:bg-access-800 transition-all shadow-lg hover:shadow-xl"
         >
-          לכל הדגמים והמחירים &larr;
+          לכל הדגמים והמחירים
+          <svg class="w-5 h-5 rtl:rotate-180 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Why Access -->
+  <!-- Section 04: Price Table -->
   <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-dark mb-3">למה לבחור ב-Access אקסס?</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          מעל 25 שנות ניסיון בייצור טרקטורונים, שילוב של איכות, אמינות ומחיר משתלם
-        </p>
-      </div>
-
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Image side -->
-        <div class="relative rounded-2xl overflow-hidden shadow-xl h-[400px]">
-          <img
-            src="/images/hero/hero-utility-atv.webp"
-            alt="טרקטורון Access אקסס בפעולה"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent"></div>
-          <div class="absolute bottom-6 inset-x-6">
-            <div class="flex gap-6 text-white">
-              <div>
-                <p class="text-3xl font-bold">6</p>
-                <p class="text-sm text-gray-200">דגמים</p>
-              </div>
-              <div class="w-px bg-white/30"></div>
-              <div>
-                <p class="text-3xl font-bold">2</p>
-                <p class="text-sm text-gray-200">קטגוריות</p>
-              </div>
-              <div class="w-px bg-white/30"></div>
-              <div>
-                <p class="text-3xl font-bold">800cc</p>
-                <p class="text-sm text-gray-200">עד</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Content side -->
-        <div>
-          <p class="text-gray-600 mb-8 leading-relaxed text-lg">
-            Access Motor מייצרת טרקטורונים מאז 1999, ומציעה מגוון דגמים לספורט ולעבודה. עם מנועים אמינים מ-300cc עד
-            800cc, מערכות הילוכים מתקדמות, ומבנה חזק המותאם לתנאי השטח הישראלי.
-          </p>
-          <div class="grid sm:grid-cols-2 gap-5">
-            {
-              [
-                {
-                  icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
-                  title: 'מחיר משתלם',
-                  desc: 'יחס עלות-תועלת מצוין, מחירים תחרותיים בשוק הישראלי',
-                },
-                {
-                  icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-                  title: 'אמינות מוכחת',
-                  desc: '25+ שנות ייצור, מנועים עמידים ואחזקה פשוטה',
-                },
-                {
-                  icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-                  title: 'מגוון מנועים',
-                  desc: 'מ-300cc ועד 800cc, לכל רמת ניסיון ושימוש',
-                },
-                {
-                  icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
-                  title: 'שירות ארצי',
-                  desc: 'רשת שירות מטרו מוטור בפריסה ארצית',
-                },
-              ].map((item) => (
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-surface border border-border hover:border-access-200 hover:shadow-sm transition-all">
-                  <div class="w-10 h-10 rounded-lg bg-access-100 flex items-center justify-center flex-shrink-0">
-                    <svg
-                      class="w-5 h-5 text-access-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-dark mb-1">{item.title}</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mini Price Table -->
-  <section class="py-16 bg-surface">
     <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-dark mb-3">מחירון טרקטורוני Access</h2>
-        <p class="text-gray-600">מחירים כוללים מע"מ</p>
-      </div>
+      <SectionNumber
+        number="04"
+        title="מחירון טרקטורוני Access"
+        subtitle="מחירים כוללים מע״מ"
+        align="center"
+      />
 
       <PriceTable rows={allModels} />
 
-      <div class="text-center mt-6">
-        <a href="/prices/" class="text-access-600 hover:text-access-700 font-medium">
-          למחירון המלא עם כל הפרטים &larr;
+      <div class="text-center mt-8">
+        <a href="/prices/" class="inline-flex items-center gap-2 text-access-600 hover:text-access-700 font-semibold transition-colors">
+          למחירון המלא עם כל הפרטים
+          <svg class="w-4 h-4 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA Section -->
   <CTASection />
 
-  <!-- FAQ -->
-  <section class="py-16 bg-white">
+  <!-- Section 05: FAQ -->
+  <section class="py-20 bg-white">
     <div class="max-w-3xl mx-auto px-4">
-      <FAQ items={homeFaq} title="שאלות נפוצות על Access Motor בישראל" />
+      <SectionNumber
+        number="05"
+        title="שאלות נפוצות"
+        subtitle="כל מה שצריך לדעת על Access Motor בישראל"
+        align="center"
+      />
+      <FAQ items={homeFaq} />
     </div>
   </section>
 
   <!-- Contact Form -->
-  <section id="contact" class="py-16 bg-surface">
-    <div class="max-w-xl mx-auto px-4">
+  <section id="contact" class="py-20 bg-surface relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-access-500/5 rounded-full blur-3xl"></div>
+    <div class="max-w-xl mx-auto px-4 relative">
       <ContactForm title="מעוניינים בפרטים נוספים? השאירו פרטים" />
     </div>
   </section>
