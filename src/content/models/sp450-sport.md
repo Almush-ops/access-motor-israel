@@ -1,7 +1,7 @@
 ---
 name: "Access SP 450 Sport"
 slug: "sp450-sport"
-title: "Access SP 450 Sport EFI - טרקטורון ספורט 450cc | מחיר ומפרט 2026"
+title: "Access SP450 Sport | טרקטורון ספורט 450cc ב-₪44,990"
 description: "Access SP 450 Sport - דגל סדרת הספורט. מנוע 450cc EFI (38 כ\"ס), מתלי גז 220 מ\"מ, הנעה 2WD/4WD. מחיר ₪44,990. הספורטיבי ביותר מ-Access Motor."
 price: 44990
 category: "sport"

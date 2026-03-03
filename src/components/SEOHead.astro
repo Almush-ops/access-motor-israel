@@ -12,7 +12,12 @@ const siteName = 'Access Motor ישראל';
 const siteUrl = 'https://access-motor.co.il';
 
 const { title, description, ogImage, ogType = 'website', canonicalUrl, noindex = false } = Astro.props;
-const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+// Smart brand detection: don't add suffix if title already contains brand keywords
+const brandKeywords = ['Access Motor', 'אקסס', 'Access'];
+const hasBrand = brandKeywords.some(kw => title.includes(kw));
+// Only add suffix if: no brand present, OR title is short enough to fit suffix (max 60 chars total)
+const suffixLength = ` | ${siteName}`.length; // ~21 chars
+const fullTitle = hasBrand ? title : (title.length + suffixLength <= 60 ? `${title} | ${siteName}` : title);
 const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
 const ogImg = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`) : `${siteUrl}/images/social.jpg`;
 ---

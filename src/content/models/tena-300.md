@@ -1,7 +1,7 @@
 ---
 name: "Access TENA 300"
 slug: "tena-300"
-title: "Access TENA 300 - טרקטורון עבודה 300cc משתלם | מחיר ₪26,990"
+title: "Access TENA 300 | טרקטורון שטח 300cc ב-₪26,990"
 description: "Access TENA 300 - הטרקטורון המשתלם ביותר לעבודה. מנוע 300cc (20 כ\"ס), ארגז מטען, גרירה 180 ק\"ג. מחיר ₪26,990 בלבד. אידאלי לחקלאות ומשקים."
 price: 26990
 category: "utility"

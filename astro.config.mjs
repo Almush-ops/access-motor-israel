@@ -7,7 +7,7 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap({
-      filter: (page) => !page.includes('/thank-you/'),
+      filter: (page) => !page.includes('/thank-you/') && !page.includes('/blog/'),
     }),
   ],
   image: {
