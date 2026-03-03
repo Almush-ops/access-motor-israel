@@ -31,16 +31,30 @@ const overlayClass = overlay === 'red'
 ---
 
 <section class:list={['relative overflow-hidden', compact ? 'min-h-[320px]' : 'min-h-[520px] md:min-h-[600px]']}>
-  <!-- Background Image -->
-  <img
-    src={image}
-    alt=""
-    class="absolute inset-0 w-full h-full object-cover"
-    width="1920"
-    height="1080"
-    loading="eager"
-    fetchpriority="high"
-  />
+  <!-- Background Image with responsive srcset -->
+  {image.endsWith('.webp') ? (
+    <img
+      src={image}
+      srcset={`${image.replace('.webp', '-mobile.webp')} 768w, ${image} 1200w`}
+      sizes="100vw"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      width="1200"
+      height="800"
+      loading="eager"
+      fetchpriority="high"
+    />
+  ) : (
+    <img
+      src={image}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      width="1200"
+      height="800"
+      loading="eager"
+      fetchpriority="high"
+    />
+  )}
   <!-- Gradient Overlay -->
   <div class:list={['absolute inset-0 bg-gradient-to-l', overlayClass]}></div>
 
