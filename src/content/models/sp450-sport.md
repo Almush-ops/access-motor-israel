@@ -1,8 +1,8 @@
 ---
 name: "Access SP 450 Sport"
 slug: "sp450-sport"
-title: "Access SP 450 Sport - טרקטורון ספורט 450cc מתקדם | Access Motor ישראל"
-description: "טרקטורון Access SP 450 Sport עם מנוע 450cc, מתלים ארוכים וביצועי שטח מתקדמים. הדגם הספורטיבי והחזק בסדרה. החל מ-44,990 ₪ כולל מע\"מ."
+title: "Access SP 450 Sport EFI - טרקטורון ספורט 450cc | מחיר ומפרט 2026"
+description: "Access SP 450 Sport - דגל סדרת הספורט. מנוע 450cc EFI (38 כ\"ס), מתלי גז 220 מ\"מ, הנעה 2WD/4WD. מחיר ₪44,990. הספורטיבי ביותר מ-Access Motor."
 price: 44990
 category: "sport"
 categoryName: "טרקטורוני ספורט"
@@ -14,9 +14,9 @@ badge: "ספורט"
 order: 3
 specs:
   - label: "נפח מנוע"
-    value: "450cc"
+    value: "449cc חד-צילינדרי"
   - label: "סוג מנוע"
-    value: "חד-צילינדרי, 4-פעימות, SOHC, קירור נוזלי"
+    value: "4-פעימות, SOHC, קירור נוזלי"
   - label: "הספק מרבי"
     value: "38 כ\"ס"
   - label: "מומנט מרבי"
@@ -35,8 +35,12 @@ specs:
     value: "זרועות A כפולות, בולמי גז, מהלך 185 מ\"מ"
   - label: "מתלים אחוריים"
     value: "זרועות A עצמאיות, בולמי גז, מהלך 220 מ\"מ"
+  - label: "אורך × רוחב × גובה"
+    value: "1,860 × 1,234 × 1,025 מ\"מ"
+  - label: "גובה מושב"
+    value: "710 מ\"מ"
   - label: "גלגלים"
-    value: "12 אינץ' אלומיניום מחוזקים"
+    value: '12" אלומיניום מחוזקים'
   - label: "צמיגים"
     value: "25x8-12 קדמי, 25x10-12 אחורי"
   - label: "מיכל דלק"
