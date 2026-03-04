@@ -8,6 +8,7 @@ import ModelSpecs from '@/components/ModelSpecs.astro';
 import FAQ from '@/components/FAQ.astro';
 import CTASection from '@/components/CTASection.astro';
 import RelatedModels from '@/components/RelatedModels.astro';
+import RelatedArticles from '@/components/RelatedArticles.astro';
 import ContactForm from '@/components/ContactForm.astro';
 import SchemaOrg from '@/components/SchemaOrg.astro';
 import { allModels, formatPrice } from '@/lib/models-data';
@@ -170,6 +171,9 @@ const keySpecs = d.specs.slice(0, 4);
         <FAQ items={d.faq} title={`שאלות נפוצות - ${d.name}`} />
       </div>
     )}
+
+    <!-- 7. Related Articles -->
+    <RelatedArticles category={d.category as 'sport' | 'utility'} />
   </div>
 
   <!-- Technology & Warranty Info -->
